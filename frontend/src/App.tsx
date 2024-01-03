@@ -1,9 +1,11 @@
-import './App.css';
+import MainTable from './components/MainTable';
 
 function App() {
+  
+
   return (
-    <div className="App">
-      <p>Hello World!</p>
+    <div>
+      <MainTable/>
     </div>
   );
 }
