@@ -12,9 +12,9 @@ const MainTable = () => {
       .catch(error => console.error('Error fetching data:', error))
   }, [])
   return (
-    <div>
+    <>
       <VolunteerTable rowData={rowData}/>
-    </div>
+    </>
   )
 }
 

@@ -6,17 +6,17 @@ import "ag-grid-community/styles/ag-theme-quartz.css"; // Theme
 
 const VolunteerTable = ({rowData}) => {
   const [colDefs] = useState([
-      { field: 'name' },
-      { headerName: 'Profile Picture', field: 'profile_picture' },
-      { field: 'phone' },
-      { field: 'email' },
-      { field: 'rating' },
-      { field: 'status' },
-      { headerName: 'Hero Project', field: 'hero_project' }
+      { field: 'name', flex: 10},
+      { headerName: 'Profile Picture', field: 'profile_picture', flex: 10 },
+      { field: 'phone', flex: 10 },
+      { field: 'email', flex: 10 },
+      { field: 'rating', flex: 10 },
+      { field: 'status', flex: 10 },
+      { headerName: 'Hero Project', field: 'hero_project', flex:10 }
       ]);
   return (
-    <div className="ag-theme-quartz" style={{height: 500 }}>
-      <AgGridReact rowData={rowData} columnDefs={colDefs}/>
+    <div style={{ height: '500px', width: '100%' }}>
+      <AgGridReact rowData={rowData} columnDefs={colDefs} className="ag-theme-quartz"/>
     </div>
   )
 }

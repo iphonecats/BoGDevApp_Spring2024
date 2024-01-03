@@ -1,10 +1,9 @@
 import MainTable from './components/MainTable';
-
 function App() {
   
 
   return (
-    <div>
+    <div className='h-auto w-auto'>
       <MainTable/>
     </div>
   );
