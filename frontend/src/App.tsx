@@ -3,7 +3,10 @@ function App() {
   
 
   return (
-    <div className='h-auto w-auto'>
+    <div>
+      <div className="flex items-center justify-center font-black text-4xl p-3">
+        <h1 className="text-center">Hero Volunteers</h1>
+      </div>
       <MainTable/>
     </div>
   );
