@@ -9,20 +9,26 @@ const MainTable = () => {
 
   const handleAddUser = (newUser) => {
     // Adds new user to the existing data
-    console.log(newUser.data)
     setRowData((prevData) => [...prevData, newUser.data]);
   };
+
+  const handleDeleteUser = (id) => {
+    setRowData(rowData.filter(user => user.id !== id))
+    userService
+      .remove(id)
+      .catch(error => console.error('Error deleting user:', error))
+  }
 
   useEffect(() => {
     userService
       .getAll()
       .then(res => res.data)
       .then(rowData => setRowData(rowData))
-      .catch(error => console.error('Error fetching data:', error))
+      .catch(error => console.error('Error fetching users:', error))
   }, [])
   return (
     <>
-      <VolunteerTable rowData={rowData}/>
+      <VolunteerTable rowData={rowData} handleDeleteUser={handleDeleteUser}/>
       <AddUserButton onAddUser={handleAddUser}/>
     </>
   )

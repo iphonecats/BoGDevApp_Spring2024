@@ -9,8 +9,14 @@ const create = newObject => {
   return axios.post(baseUrl, newObject)
 }
 
+const remove = id => {
+  console.log(`${baseUrl}/${id}`)
+  return axios.delete(`${baseUrl}/${id}`)
+}
+
 // eslint-disable-next-line
 export default { 
   getAll: getAll,
-  create: create
+  create: create,
+  remove: remove
 }
