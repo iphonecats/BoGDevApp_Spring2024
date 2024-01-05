@@ -7,6 +7,7 @@ const port = 5000;
 app.use(express.json());
 app.use(cors());
 
+// changes don't write into file, will revert to original after restarting server
 let data = database
 
 const generateId = () => {
