@@ -13,22 +13,31 @@ const MainTable = () => {
   };
 
   const handleDeleteUser = (id) => {
+    userService.remove(id)
     setRowData(rowData.filter(user => user.id !== id))
-    userService
-      .remove(id)
-      .catch(error => console.error('Error deleting user:', error))
   }
+
+  const handleUpdateUser = (updatedUser, id) => {
+    userService.update(id, updatedUser)
+    setRowData(rowData.map( user => {
+      if (id === user.id) {
+        return updatedUser
+      } else {
+        return user
+      }
+    }))
+  }
+
 
   useEffect(() => {
     userService
       .getAll()
       .then(res => res.data)
       .then(rowData => setRowData(rowData))
-      .catch(error => console.error('Error fetching users:', error))
   }, [])
   return (
     <>
-      <VolunteerTable rowData={rowData} handleDeleteUser={handleDeleteUser}/>
+      <VolunteerTable rowData={rowData} handleDeleteUser={handleDeleteUser} handleUpdateUser={handleUpdateUser}/>
       <AddUserButton onAddUser={handleAddUser}/>
     </>
   )

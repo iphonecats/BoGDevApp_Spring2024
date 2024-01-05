@@ -42,7 +42,6 @@ const AddUserButton = ({onAddUser}) => {
         });
         setIsFormVisible(false);
       })
-      .catch((error) => console.error('Error adding new user:', error));
   };
 
   return (
