@@ -36,7 +36,7 @@ const OptionsCell = (props) => {
         onClick={handleNavigateNotes}
         className="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600 text-sm"
       >
-        View Notes
+        Notes
       </button>
     </div>
   );
