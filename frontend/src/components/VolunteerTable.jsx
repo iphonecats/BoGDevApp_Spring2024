@@ -41,12 +41,15 @@ const VolunteerTable = ({rowData, handleDeleteUser, handleUpdateUser}) => {
   };
 
   return (
-    <div style={{ height: '500px', width: '100%' }}>
+    <div style={{ height: '700px', width: '100%' }}>
       <AgGridReact 
         rowData={rowData} 
         columnDefs={colDefs} 
         className="ag-theme-quartz"
         context = {context}
+        pagination={true}
+        paginationPageSize={10}
+        paginationPageSizeSelector={[10, 20, 30]}
       />
       {editUser && editFormVisible && (
         <EditUserForm

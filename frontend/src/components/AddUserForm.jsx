@@ -50,7 +50,7 @@ const AddUserButton = ({onAddUser}) => {
         onClick={() => setIsFormVisible(!isFormVisible)}
         className="bg-blue-500 text-white py-2 px-4 rounded"
       >
-        Add New User
+        {isFormVisible ? 'Close' : 'Add New User'}
       </button>
       {isFormVisible && (
         <div className="w-full sm:max-w-md">
@@ -139,7 +139,7 @@ const AddUserButton = ({onAddUser}) => {
               type="submit"
               className="bg-blue-500 text-white py-2 px-4 rounded"
             >
-              Submit
+              Save
             </button>
           </form>
         </div>
