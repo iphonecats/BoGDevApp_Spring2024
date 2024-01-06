@@ -17,11 +17,13 @@ const VolunteerTable = ({rowData, handleDeleteUser, handleUpdateUser}) => {
       { field: 'rating', flex: 5 },
       { field: 'status', cellRenderer: StatusCell, flex: 5 },
       { headerName: 'Hero Project', field: 'hero_project', flex: 7 },
-      { field: 'options', cellRenderer: OptionsCell, flex : 10, autoHeight: true}
+      { field: 'options', cellRenderer: OptionsCell, flex : 15, autoHeight: true},
+      { headerName: 'Clicks', field: 'clickCount', flex: 1 },
       ]);
 
   const [editUser, setEditUser] = useState(null);
   const [editFormVisible, setEditFormVisible] = useState(false);
+  const [clickCounts, setClickCounts] = useState({});
 
   const handleEditUser = (user) => {
     setEditUser(user);
@@ -33,6 +35,22 @@ const VolunteerTable = ({rowData, handleDeleteUser, handleUpdateUser}) => {
     setEditFormVisible(false);
     setEditUser(null);
   };
+
+  const handleRowClick = (params) => {
+    const user = params.data;
+    
+    // Update the click count for the clicked row using the user's ID
+    setClickCounts((prevCounts) => ({
+      ...prevCounts,
+      [user.id]: (prevCounts[user.id] || 0) + 1,
+    }));
+  };
+
+  // adds clickCounts to rowData
+  const changedRowData = rowData ? rowData.map((user) => ({
+    ...user,
+    clickCount: clickCounts[user.id] || 0,
+  })) : [];
   
   //used to pass functions and state to cell renderer
   const context = {
@@ -43,13 +61,14 @@ const VolunteerTable = ({rowData, handleDeleteUser, handleUpdateUser}) => {
   return (
     <div style={{ height: '700px', width: '100%' }}>
       <AgGridReact 
-        rowData={rowData} 
+        rowData={changedRowData} 
         columnDefs={colDefs} 
         className="ag-theme-quartz"
         context = {context}
         pagination={true}
         paginationPageSize={10}
         paginationPageSizeSelector={[10, 20, 30]}
+        onRowClicked={(params) => handleRowClick(params)}
       />
       {editUser && editFormVisible && (
         <EditUserForm

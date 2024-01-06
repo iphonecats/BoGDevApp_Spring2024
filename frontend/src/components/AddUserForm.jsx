@@ -25,7 +25,7 @@ const AddUserButton = ({onAddUser}) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // Sends request to add user
+    // Sends request to add user to the backend
     userService.create(formData)
       .then((newUser) => {
         onAddUser(newUser);

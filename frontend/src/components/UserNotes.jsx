@@ -21,7 +21,7 @@ const UserNotes = () => {
   }, [])
 
   const handleNavigateBack = () => {
-    navigate('/');
+    navigate(-1);
   };
 
   if (!user) {

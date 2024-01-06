@@ -23,7 +23,7 @@ const EditUserForm = ({ user, onSave, onCancel }) => {
 
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center overflow-auto">
-      <div className="bg-white p-2 rounded shadow-md w-full max-w-xs">
+      <div className="bg-white rounded shadow-md w-full max-w-md p-1">
         <h2 className="text-2xl font-bold mb-4">Edit User</h2>
         <label className="block mb-4">
           Name:
@@ -105,7 +105,7 @@ const EditUserForm = ({ user, onSave, onCancel }) => {
           />
           {editedUser.status ? ' Active' : ' Inactive'}
         </label>
-        <div className="flex justify-between">
+        <div className="flex justify-end mt-2">
           <button
             onClick={handleSave}
             className="bg-blue-500 text-white py-2 px-4 rounded"

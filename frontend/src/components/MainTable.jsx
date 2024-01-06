@@ -13,6 +13,7 @@ const MainTable = () => {
   };
 
   const handleDeleteUser = (id) => {
+    // sends request to delete in the backend
     userService.remove(id)
     setRowData(rowData.filter(user => user.id !== id))
   }
@@ -40,8 +41,8 @@ const MainTable = () => {
       <div className="flex items-center justify-center font-black text-4xl p-3">
         <h1 className="text-center">Hero Volunteers</h1>
       </div>
-      <VolunteerTable rowData={rowData} handleDeleteUser={handleDeleteUser} handleUpdateUser={handleUpdateUser}/>
       <AddUserButton onAddUser={handleAddUser}/>
+      <VolunteerTable rowData={rowData} handleDeleteUser={handleDeleteUser} handleUpdateUser={handleUpdateUser}/>
     </>
   )
 }
