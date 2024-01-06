@@ -11,12 +11,12 @@ import "ag-grid-community/styles/ag-theme-quartz.css"; // Theme
 const VolunteerTable = ({rowData, handleDeleteUser, handleUpdateUser}) => {
   const [colDefs] = useState([
       { field: 'name', flex: 15},
-      { headerName: 'Profile Picture', field: 'avatar', cellRenderer: ImgCell, flex: 10 },
+      { headerName: 'Profile Picture', field: 'avatar', cellRenderer: ImgCell, flex: 12 },
       { field: 'phone', flex: 10 },
       { field: 'email', flex: 10 },
       { field: 'rating', flex: 5 },
       { field: 'status', cellRenderer: StatusCell, flex: 5 },
-      { headerName: 'Hero Project', field: 'hero_project', flex: 10 },
+      { headerName: 'Hero Project', field: 'hero_project', flex: 7 },
       { field: 'options', cellRenderer: OptionsCell, flex : 10, autoHeight: true}
       ]);
 
