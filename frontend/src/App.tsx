@@ -1,14 +1,14 @@
 import MainTable from './components/MainTable';
+import { Routes, Route } from 'react-router-dom';
+import UserNotes from './components/UserNotes';
 function App() {
   
 
   return (
-    <div>
-      <div className="flex items-center justify-center font-black text-4xl p-3">
-        <h1 className="text-center">Hero Volunteers</h1>
-      </div>
-      <MainTable/>
-    </div>
+    <Routes>
+      <Route path='/' element={<MainTable />}/>
+      <Route path='/notes/:id' element={<UserNotes/>}/>
+    </Routes>
   );
 }
 

@@ -7,6 +7,12 @@ const getAll = () => {
     .catch(error => console.error('Error fetching users:', error))
 }
 
+const getUser = id => {
+  return axios
+    .get(`${baseUrl}/${id}`)
+    .catch(error => console.error('Error fetching user:' + id, error))
+}
+
 const create = newUser => {
   return axios
     .post(baseUrl, newUser)
@@ -27,5 +33,6 @@ export default {
   getAll: getAll,
   create: create,
   remove: remove,
-  update: update
+  update: update,
+  getUser: getUser,
 }

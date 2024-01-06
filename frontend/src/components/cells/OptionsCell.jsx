@@ -1,8 +1,10 @@
 import React from 'react';
 import EditUserForm from '../EditUserForm';
+import { useNavigate } from "react-router-dom"
 
 const OptionsCell = (props) => {
   const { handleDeleteUser, handleEditUser } = props.context;
+  const navigate = useNavigate();
 
   const onClickDelete = () => {
     handleDeleteUser(props.data.id);
@@ -10,6 +12,10 @@ const OptionsCell = (props) => {
 
   const onClickEdit = () => {
     handleEditUser(props.data);
+  };
+
+  const handleNavigateNotes = () => {
+    navigate(`notes/${props.data.id}`);
   };
 
   return (
@@ -25,6 +31,12 @@ const OptionsCell = (props) => {
         className="bg-gray-300 text-red-500 py-1 px-2 rounded hover:bg-gray-400 text-sm"
       >
         Delete
+      </button>
+      <button
+        onClick={handleNavigateNotes}
+        className="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600 text-sm"
+      >
+        View Notes
       </button>
     </div>
   );
