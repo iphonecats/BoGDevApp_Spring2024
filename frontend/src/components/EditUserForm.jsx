@@ -8,10 +8,12 @@ const EditUserForm = ({ user, onSave, onCancel }) => {
   }, [user]);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
+    //if type is checkbox it converts to be true or false
+    const newValue = type === 'checkbox' ? checked : value;
     setEditedUser((prevUser) => ({
       ...prevUser,
-      [name]: value,
+      [name]: newValue,
     }));
   };
 
