@@ -21,7 +21,7 @@ const EditUserForm = ({ user, onSave, onCancel }) => {
   const handleSave = () => {
     onSave(editedUser);
   };
-
+  
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center overflow-auto">
       <div className="bg-white rounded shadow-md w-full max-w-md p-1">

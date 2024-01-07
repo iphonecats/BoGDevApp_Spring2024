@@ -49,7 +49,7 @@ const MainTable = ({isAdmin}) => {
   return (
     <>
       <div className="flex items-center justify-center p-2">
-        <h1 className="text-center font-black text-4xl">Hero Volunteers</h1>
+        <h1 className="text-center font-black text-4xl">Haha Heroes Volunteers</h1>
       </div>
 
       {!isAdmin &&
