@@ -29,14 +29,14 @@ const UserNotes = () => {
   }
 
   return (
-    <div>
+    <div className='p-4'>
       <button
         onClick={handleNavigateBack}
         className="bg-blue-500 text-white py-2 px-4 rounded mt-4 hover:bg-blue-600"
       >
         Back
       </button>
-      <h1 className="text-2xl font-bold mb-4">User</h1>
+      <h1 className="text-4xl font-bold mb-4">User</h1>
       <img src={user.avatar} alt={user.name} />
       <p>Name: {user.name}</p>
       <p>Email: {user.email}</p>
@@ -44,8 +44,8 @@ const UserNotes = () => {
       <p>Hero Project: {user.hero_project}</p>
       <p>Rating: {user.rating}</p>
       <p>Status: {user.status ? 'Active' : 'Inactive'}</p>
-      <h2 className="text-2xl font-bold mt-4 mb-2">Notes</h2>
-      <p>{user.notes}</p>
+      <h2 className="text-3xl font-bold mt-4 mb-2">Notes</h2>
+      <p className='text-2xl'>{user.notes}</p>
 
     </div>
   );
