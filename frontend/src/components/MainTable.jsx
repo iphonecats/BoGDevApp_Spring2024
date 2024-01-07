@@ -3,9 +3,11 @@ import VolunteerTable from './VolunteerTable'
 import { useState, useEffect } from 'react'
 import userService from '../services/users'
 import AddUserButton from './AddUserForm'
+import { useNavigate } from "react-router-dom"
 
-const MainTable = () => {
+const MainTable = ({isAdmin}) => {
   const[rowData, setRowData] = useState();
+  const navigate = useNavigate();
 
   const handleAddUser = (newUser) => {
     // Adds new user to the existing data
@@ -29,6 +31,10 @@ const MainTable = () => {
     }))
   }
 
+  const handleEnterAdmin = () => {
+    navigate(`/admin/`);
+  }
+
 
   useEffect(() => {
     userService
@@ -41,8 +47,20 @@ const MainTable = () => {
       <div className="flex items-center justify-center font-black text-4xl p-3">
         <h1 className="text-center">Hero Volunteers</h1>
       </div>
-      <AddUserButton onAddUser={handleAddUser}/>
-      <VolunteerTable rowData={rowData} handleDeleteUser={handleDeleteUser} handleUpdateUser={handleUpdateUser}/>
+      {!isAdmin &&
+      <div className="flex flex-col items-center justify-center">
+        <button onClick={handleEnterAdmin} className="bg-blue-500 text-white py-2 px-4 rounded">
+        Enter Admin Mode
+        </button>
+      </div>
+      }
+      {isAdmin && <AddUserButton onAddUser={handleAddUser}/>}
+      <VolunteerTable 
+        rowData={rowData} 
+        handleDeleteUser={handleDeleteUser} 
+        handleUpdateUser={handleUpdateUser}
+        isAdmin = {isAdmin}
+      />
     </>
   )
 }

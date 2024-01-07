@@ -6,7 +6,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<MainTable />}/>
+      <Route path='/' element={<MainTable isAdmin={false}/>}/>
+      <Route path='/admin' element={<MainTable isAdmin={true}/>}/>
       <Route path='/notes/:id' element={<UserNotes/>}/>
     </Routes>
   );

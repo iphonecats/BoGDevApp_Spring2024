@@ -8,7 +8,7 @@ import EditUserForm from './EditUserForm';
 import "ag-grid-community/styles/ag-grid.css"; // Core CSS
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Theme
 
-const VolunteerTable = ({rowData, handleDeleteUser, handleUpdateUser}) => {
+const VolunteerTable = ({rowData, handleDeleteUser, handleUpdateUser, isAdmin}) => {
   const [colDefs] = useState([
       { field: 'name', flex: 12},
       { headerName: 'Profile Picture', field: 'avatar', cellRenderer: ImgCell, flex: 12 },
@@ -56,10 +56,14 @@ const VolunteerTable = ({rowData, handleDeleteUser, handleUpdateUser}) => {
   const context = {
     handleDeleteUser: handleDeleteUser,
     handleEditUser: handleEditUser,
+    isAdmin: isAdmin
   };
 
+  //adjust table size based on admin mode
+  const height = isAdmin ? '889px' : '519px';
+
   return (
-    <div style={{ height: '1120px', width: '100%' }}>
+    <div style={{ height: height, width: '100%' }}>
       <AgGridReact 
         rowData={changedRowData} 
         columnDefs={colDefs} 
