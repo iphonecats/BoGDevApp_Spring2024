@@ -21,7 +21,7 @@ const OptionsCell = (props) => {
   return (
     <div className="flex flex-col items-center space-y-2">
       { isAdmin &&
-      <div>
+      <div className="flex flex-col items-center space-y-2">
         <button
           onClick={onClickEdit}
           className="bg-green-500 text-white py-1 px-2 rounded hover:bg-green-600 text-sm"

@@ -60,7 +60,7 @@ const VolunteerTable = ({rowData, handleDeleteUser, handleUpdateUser, isAdmin}) 
   };
 
   //adjust table size based on admin mode
-  const height = isAdmin ? '889px' : '519px';
+  const height = isAdmin ? '1120px' : '519px';
 
   return (
     <div style={{ height: height, width: '100%' }}>

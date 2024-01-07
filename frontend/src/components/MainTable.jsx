@@ -44,9 +44,10 @@ const MainTable = ({isAdmin}) => {
   }, [])
   return (
     <>
-      <div className="flex items-center justify-center font-black text-4xl p-3">
-        <h1 className="text-center">Hero Volunteers</h1>
+      <div className="flex items-center justify-center p-2">
+        <h1 className="text-center font-black text-4xl">Hero Volunteers</h1>
       </div>
+
       {!isAdmin &&
       <div className="flex flex-col items-center justify-center">
         <button onClick={handleEnterAdmin} className="bg-blue-500 text-white py-2 px-4 rounded">
@@ -55,6 +56,7 @@ const MainTable = ({isAdmin}) => {
       </div>
       }
       {isAdmin && <AddUserButton onAddUser={handleAddUser}/>}
+      <p className='italic flex pl-3'>press on column title to sort asc/desc</p>
       <VolunteerTable 
         rowData={rowData} 
         handleDeleteUser={handleDeleteUser} 
