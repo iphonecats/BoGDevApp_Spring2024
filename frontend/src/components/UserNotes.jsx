@@ -7,6 +7,8 @@ import {
   useNavigate,
 } from "react-router-dom"
 
+//component to render when /notes/{id} is accessed
+
 const UserNotes = () => {
   const[user, setUser] = useState(null);
   //id corresponding to the route /notes/{id}
@@ -21,6 +23,7 @@ const UserNotes = () => {
   }, [])
 
   const handleNavigateBack = () => {
+    //navigates to the previous page
     navigate(-1);
   };
 

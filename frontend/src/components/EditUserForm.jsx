@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+//handles the edit form when the edit button inside the options cell is pressed
 const EditUserForm = ({ user, onSave, onCancel }) => {
   const [editedUser, setEditedUser] = useState({ ...user });
 

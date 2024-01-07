@@ -1,5 +1,6 @@
 import React from 'react';
 
+//cell renderer for the status column
 function StatusCell({ value }) {
   return (
     <>

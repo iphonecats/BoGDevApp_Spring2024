@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import userService from '../services/users'
 
+// handles the add user form and adding the user
 const AddUserButton = ({onAddUser}) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -28,6 +29,7 @@ const AddUserButton = ({onAddUser}) => {
     // Sends request to add user to the backend
     userService.create(formData)
       .then((newUser) => {
+        //callback to update in parent component to update in frontend
         onAddUser(newUser);
         //Resets and hides form
         setFormData({

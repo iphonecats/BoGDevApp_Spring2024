@@ -5,6 +5,7 @@ import userService from '../services/users'
 import AddUserButton from './AddUserForm'
 import { useNavigate } from "react-router-dom"
 
+//Main table handles all the components on the screen
 const MainTable = ({isAdmin}) => {
   const[rowData, setRowData] = useState();
   const navigate = useNavigate();
@@ -15,12 +16,13 @@ const MainTable = ({isAdmin}) => {
   };
 
   const handleDeleteUser = (id) => {
-    // sends request to delete in the backend
+    // sends DELETE request to delete in the backend
     userService.remove(id)
     setRowData(rowData.filter(user => user.id !== id))
   }
 
   const handleUpdateUser = (updatedUser, id) => {
+    //sends PUT request to update the user in the backend
     userService.update(id, updatedUser)
     setRowData(rowData.map( user => {
       if (id === user.id) {
@@ -37,11 +39,13 @@ const MainTable = ({isAdmin}) => {
 
 
   useEffect(() => {
+    // sends GET request to grab users from backend
     userService
       .getAll()
       .then(res => res.data)
       .then(rowData => setRowData(rowData))
   }, [])
+  //add user button shows only in admin mode
   return (
     <>
       <div className="flex items-center justify-center p-2">

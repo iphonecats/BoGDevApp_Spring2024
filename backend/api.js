@@ -10,6 +10,7 @@ app.use(cors());
 // changes don't write into file, will revert to original after restarting server
 let data = database
 
+//generates id to be the next largest id #
 const generateId = () => {
   const maxId = data.length > 0
     ? Math.max(...data.map(n => n.id))

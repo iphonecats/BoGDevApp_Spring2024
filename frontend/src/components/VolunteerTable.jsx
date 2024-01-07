@@ -8,6 +8,7 @@ import EditUserForm from './EditUserForm';
 import "ag-grid-community/styles/ag-grid.css"; // Core CSS
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Theme
 
+//component handles the volunteer table and user options
 const VolunteerTable = ({rowData, handleDeleteUser, handleUpdateUser, isAdmin}) => {
   const [colDefs] = useState([
       { field: 'name', flex: 12},
@@ -25,6 +26,7 @@ const VolunteerTable = ({rowData, handleDeleteUser, handleUpdateUser, isAdmin}) 
   const [editFormVisible, setEditFormVisible] = useState(false);
   const [clickCounts, setClickCounts] = useState({});
 
+  // button to edit in options cell
   const handleEditUser = (user) => {
     setEditUser(user);
     setEditFormVisible(true);

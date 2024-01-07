@@ -2,6 +2,7 @@ import React from 'react';
 import EditUserForm from '../EditUserForm';
 import { useNavigate } from "react-router-dom"
 
+//options cell renderer, to add button to view notes, delete, and edit the respective user
 const OptionsCell = (props) => {
   const { handleDeleteUser, handleEditUser, isAdmin } = props.context;
   const navigate = useNavigate();

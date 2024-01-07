@@ -1,6 +1,8 @@
 import axios from 'axios'
 const baseUrl = 'http://localhost:5000/api/bog/users'
 
+//handles frontend API calls and handling
+
 const getAll = () => {
   return axios
     .get(baseUrl)
@@ -30,6 +32,7 @@ const update = (id, updatedUser) => {
 }
 // eslint-disable-next-line
 export default { 
+  //passes functions to make API calls into one organized object
   getAll: getAll,
   create: create,
   remove: remove,
