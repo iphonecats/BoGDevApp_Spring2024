@@ -1,3 +1,3 @@
 Hello! This is my Bits of Good take-home assessment for the 2024 Spring Developer application, I hope you enjoy my application!
 
-** every functional requirement implemented including bonus backend changes to users, except expert webworkers bullet **
+Let me know if there are issues running the program or bugs, every feature should be implemented besides the webworkers bullet :)
